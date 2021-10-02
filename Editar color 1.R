@@ -3,10 +3,10 @@
 # Copiar todo esto #
 #                  #
 ####################
-# Hecho con gusto por Selene Muñoz Ortega (UAEH)
+# Hecho con gusto por Selene MuÃ±oz Ortega (UAEH)
 #V8
-# LABORATORIO - Gráficos en R con ggplot2 para Ciencia de Datos
-# Editando el color de los gráficos (PARTE 1)
+# LABORATORIO - GrÃ¡ficos en R con ggplot2 para Ciencia de Datos
+# Editando el color de los grÃ¡ficos (PARTE 1)
 
 
 
@@ -23,7 +23,7 @@ library(gapminder)
 # cargando datos a entorno
 data("gapminder")
 
-# filtrando por año 2007
+# filtrando por aÃ±o 2007
 gapminder2007 <- gapminder[gapminder$year == '2007', ]
 
 # de donde sacar colores?
