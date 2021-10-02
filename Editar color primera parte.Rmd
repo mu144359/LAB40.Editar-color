@@ -1,0 +1,113 @@
+---
+title: "Editar color primera parte"
+author: "Selene Muñoz MD"
+date: "2/10/2021"
+output: html_document
+---
+
+Instalar paqueterías
+
+install.packages("gapminder")
+
+install.packages("ggplot2")
+
+Cargar librerías ggplot2 y gapminder
+```{r}
+library(ggplot2)
+library(gapminder)
+```
+
+Cargar datos a entorno
+```{r}
+data("gapminder")
+```
+
+Filtrar por año 2007
+```{r}
+gapminder2007 <- gapminder[gapminder$year == '2007', ]
+```
+
+¿De dónde sacar colores?
+http://www.stat.columbia.edu/~tzheng/files/Rcolor.pdf
+
+Escala discreta
+
+Haciendo gráfica de puntos por continente
+```{r}
+g1 <- ggplot(data = gapminder2007,
+             mapping = aes(x = gdpPercap,
+                           y = lifeExp,
+                           color = continent)) +
+  geom_point()
+```
+
+Ver g1
+```{r}
+g1
+```
+
+Haciendo boxplot en continentes
+```{r}
+g2 <- ggplot(data = gapminder2007,
+             mapping = aes(x = continent, 
+                           y = lifeExp,
+                           fill = continent)) +
+  geom_boxplot()
+```
+
+Ver g2
+```{r}
+g2
+```
+
+Cambiando el color de los continentes g1
+```{r}
+g1 + scale_color_manual (values = c('cadetblue',
+                                    'chartreuse',
+                                    'firebrick',
+                                    'gold',
+                                    'darkorchid'))
+```
+
+Cambiando el color de los continentes g2
+```{r}
+g2 + scale_fill_manual (values = c('cadetblue',
+                                   'chartreuse',
+                                   'firebrick',
+                                   'gold',
+                                   'darkorchid'))
+```
+
+Cambiando colores con paleta RColorBrewer
+
+Instalar RColorBrewer
+
+install.packages('RColorBrewer')
+
+Para ver las paletas
+```{r}
+library(RColorBrewer)
+display.brewer.all()
+```
+
+Guardar como imagen width = 400, height = 800
+
+Cambiando escala de color g1
+```{r}
+g1 + scale_color_brewer(palette="BrBG")
+```
+
+Cambiando escala de color g2
+```{r}
+g2 + scale_fill_brewer(palette="Paired")
+```
+
+Cambiando escala de grises g1
+```{r}
+g1 + scale_color_grey()
+```
+
+Cambiando escala de grises g2
+```{r}
+g2 + scale_fill_grey()
+```
